@@ -1,13 +1,12 @@
 [project]
 site_url = "https://www.example.com/"
-site_name = "Documentation"
-# site_description = "Your project description"
-# site_author = "Your name"
+site_name = "Robótica Unisinos"
 
-# copyright = "Copyright &copy; 2026 Your name"
 
-# repo_url = "https://github.com/user/repo"
-# repo_name = "user/repo"
+copyright = "Copyright &copy; 2026 Robótica Unisinos"
+
+# repo_url = "https://github.com/Unisinos-Robotics/RoboticaUnisinosPage"
+# repo_name = "Unisinos-Robotics/RoboticaUnisinosPage"
 # edit_uri = "edit/main/docs/"
 
 nav = [
@@ -69,12 +68,16 @@ toggle.name = "Switch to light mode"
 [[project.theme.palette]]
 media = "(prefers-color-scheme: light)"
 scheme = "default"
+primary = "blue"
+accent = "cyan"
 toggle.icon = "lucide/sun"
 toggle.name = "Switch to dark mode"
 
 [[project.theme.palette]]
 media = "(prefers-color-scheme: dark)"
 scheme = "slate"
+primary = "light blue"
+accent = "cyan"
 toggle.icon = "lucide/moon"
 toggle.name = "Switch to system preference"
 
