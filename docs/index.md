@@ -1,173 +1,66 @@
 ---
-icon: lucide/rocket
+icon: lucide/house
+hide:
+  - navigation
+  - toc
 ---
 
-# Get started
+# Robótica Unisinos
 
-For full documentation visit [zensical.org](https://zensical.org/docs/).
+**Documentação, guias e relatórios do grupo de robótica da Unisinos.**
 
-## Commands
+Aqui reunimos o material técnico produzido no laboratório: manuais de operação
+dos robôs, tutoriais de programação, procedimentos de segurança e estudos de caso
+para quem está começando ou quer se aprofundar.
 
-* [`zensical new`][new] - Create a new project
-* [`zensical serve`][serve] - Start local web server
-* [`zensical build`][build] - Build your site
+[Ler o ebook do Dobot Magician](dobot-magician/index.md){ .md-button .md-button--primary }
+[GitHub](https://github.com/Unisinos-Robotics){ .md-button }
 
-  [new]: https://zensical.org/docs/usage/new/
-  [serve]: https://zensical.org/docs/usage/preview/
-  [build]: https://zensical.org/docs/usage/build/
+## Sobre o grupo
 
-## Examples
+A Robótica Unisinos é um grupo de estudantes e pesquisadores da Universidade do
+Vale do Rio dos Sinos (Unisinos) dedicado ao estudo, à programação e à aplicação
+de robôs. Este site é a base de conhecimento do grupo: tudo o que aprendemos
+operando os equipamentos do laboratório fica documentado aqui para as próximas
+turmas.
 
-### Admonitions
+## Documentação
 
-> Go to [documentation](https://zensical.org/docs/authoring/admonitions/)
+<div class="grid cards" markdown>
 
-!!! note
+-   :lucide-bot: __Dobot Magician__
 
-    This is a **note** admonition. Use it to provide helpful information.
+    ---
 
-!!! warning
+    Ebook técnico sobre robótica colaborativa usando o Dobot Magician:
+    fundamentos, segurança, operação com DobotLab, programação em Python
+    (`pydobot`) e estudos de caso.
 
-    This is a **warning** admonition. Be careful!
+    [:lucide-arrow-right: Abrir o ebook](dobot-magician/index.md)
 
-### Details
+-   :lucide-construction: __Em breve__
 
-> Go to [documentation](https://zensical.org/docs/authoring/admonitions/#collapsible-blocks)
+    ---
 
-??? info "Click to expand for more info"
+    Novos robôs, projetos e relatórios do laboratório serão publicados aqui.
+    Quer documentar algo? Veja [como participar](#contato-e-como-participar).
 
-    This content is hidden until you click to expand it.
-    Great for FAQs or long explanations.
+</div>
 
-## Code Blocks
+## Contato e como participar
 
-> Go to [documentation](https://zensical.org/docs/authoring/code-blocks/)
+- **GitHub:** [github.com/Unisinos-Robotics](https://github.com/Unisinos-Robotics)
+- **Encontrou um erro ou quer sugerir um conteúdo?** Abra uma
+  [issue](https://github.com/Unisinos-Robotics/RoboticaUnisinosPage/issues).
+- **Quer contribuir com a documentação?** Crie uma branch a partir da `main`,
+  escreva suas páginas em Markdown dentro de `docs/` e abra um pull request.
+  Todo conteúdo é revisado antes de ser publicado.
 
-``` python hl_lines="2" title="Code blocks"
-def greet(name):
-    print(f"Hello, {name}!") # (1)!
+!!! tip "Rodando o site localmente"
 
-greet("Python")
-```
-
-1.  > Go to [documentation](https://zensical.org/docs/authoring/code-blocks/#code-annotations)
-
-    Code annotations allow to attach notes to lines of code.
-
-Code can also be highlighted inline: `#!python print("Hello, Python!")`.
-
-## Content tabs
-
-> Go to [documentation](https://zensical.org/docs/authoring/content-tabs/)
-
-=== "Python"
-
-    ``` python
-    print("Hello from Python!")
+    ``` sh
+    uv sync
+    uv run zensical serve
     ```
 
-=== "Rust"
-
-    ``` rs
-    println!("Hello from Rust!");
-    ```
-
-## Diagrams
-
-> Go to [documentation](https://zensical.org/docs/authoring/diagrams/)
-
-``` mermaid
-graph LR
-  A[Start] --> B{Error?};
-  B -->|Yes| C[Hmm...];
-  C --> D[Debug];
-  D --> B;
-  B ---->|No| E[Yay!];
-```
-
-## Footnotes
-
-> Go to [documentation](https://zensical.org/docs/authoring/footnotes/)
-
-Here's a sentence with a footnote.[^1]
-
-Hover it, to see a tooltip.
-
-[^1]: This is the footnote.
-
-
-## Formatting
-
-> Go to [documentation](https://zensical.org/docs/authoring/formatting/)
-
-- ==This was marked (highlight)==
-- ^^This was inserted (underline)^^
-- ~~This was deleted (strikethrough)~~
-- H~2~O
-- A^T^A
-- ++ctrl+alt+del++
-
-## Icons, Emojis
-
-> Go to [documentation](https://zensical.org/docs/authoring/icons-emojis/)
-
-* :sparkles: `:sparkles:`
-* :rocket: `:rocket:`
-* :tada: `:tada:`
-* :memo: `:memo:`
-* :eyes: `:eyes:`
-
-## Maths
-
-> Go to [documentation](https://zensical.org/docs/authoring/math/)
-
-$$
-\cos x=\sum_{k=0}^{\infty}\frac{(-1)^k}{(2k)!}x^{2k}
-$$
-
-!!! warning "Needs configuration"
-    Note that MathJax is included via a `script` tag on this page and is not
-    configured in the generated default configuration to avoid including it
-    in a pages that do not need it. See the documentation for details on how
-    to configure it on all your pages if they are more Maths-heavy than these
-    simple starter pages.
-
-<script id="MathJax-script" src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [["\\(", "\\)"]],
-      displayMath: [["\\[", "\\]"]],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    options: {
-      ignoreHtmlClass: ".*|",
-      processHtmlClass: "arithmatex"
-    }
-  };
-
-  document$.subscribe(() => {
-    MathJax.startup.output.clearCache()
-    MathJax.typesetClear()
-    MathJax.texReset()
-    MathJax.typesetPromise()
-  })
-</script>
-
-## Task Lists
-
-> Go to [documentation](https://zensical.org/docs/authoring/lists/#using-task-lists)
-
-* [x] Install Zensical
-* [x] Configure `zensical.toml`
-* [x] Write amazing documentation
-* [ ] Deploy anywhere
-
-## Tooltips
-
-> Go to [documentation](https://zensical.org/docs/authoring/tooltips/)
-
-[Hover me][example]
-
-  [example]: https://example.com "I'm a tooltip!"
+    O site fica disponível em <http://localhost:8000>.

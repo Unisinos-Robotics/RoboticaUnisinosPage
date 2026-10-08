@@ -1,17 +1,51 @@
 [project]
-site_url = "https://www.example.com/"
+site_url = "https://unisinos-robotics.github.io/RoboticaUnisinosPage/"
 site_name = "Robótica Unisinos"
 
 
 copyright = "Copyright &copy; 2026 Robótica Unisinos"
 
-# repo_url = "https://github.com/Unisinos-Robotics/RoboticaUnisinosPage"
-# repo_name = "Unisinos-Robotics/RoboticaUnisinosPage"
+repo_url = "https://github.com/Unisinos-Robotics/RoboticaUnisinosPage"
+repo_name = "Unisinos-Robotics/RoboticaUnisinosPage"
 # edit_uri = "edit/main/docs/"
 
 nav = [
-  { "Get started" = "index.md" },
-  { "Markdown in 5min" = "markdown.md" },
+  { "Início" = "index.md" },
+  { "Ebook: Robótica Colaborativa com Dobot Magician" = [
+    "dobot-magician/index.md",
+    { "Parte I · Fundamentos" = [
+      { "1. Robótica colaborativa" = "dobot-magician/fundamentos/robotica-colaborativa.md" },
+      { "2. O Dobot Magician" = "dobot-magician/fundamentos/magician.md" },
+      { "3. Cinemática, workspace e coordenadas" = "dobot-magician/fundamentos/cinematica.md" },
+      { "4. Conexão e interfaces" = "dobot-magician/fundamentos/conexao-interfaces.md" },
+    ] },
+    { "Parte II · Segurança" = [
+      { "5. Normas e conceitos" = "dobot-magician/seguranca/normas.md" },
+      { "6. Procedimentos seguros" = "dobot-magician/seguranca/procedimentos.md" },
+    ] },
+    { "Parte III · Operação" = [
+      { "7. DobotLab e DobotLink" = "dobot-magician/operacao/dobotlab.md" },
+      { "8. Blockly" = "dobot-magician/operacao/blockly.md" },
+      { "9. Escrita e desenho" = "dobot-magician/operacao/desenho.md" },
+      { "10. Gravação a laser" = "dobot-magician/operacao/laser.md" },
+      { "11. Teaching & Playback" = "dobot-magician/operacao/teaching-playback.md" },
+      { "12. Impressão 3D" = "dobot-magician/operacao/impressao-3d.md" },
+      { "13. Calibração e homing" = "dobot-magician/operacao/calibracao.md" },
+      { "14. Modo offline e joystick" = "dobot-magician/operacao/offline-stick.md" },
+      { "15. I/O multiplexado" = "dobot-magician/operacao/io.md" },
+    ] },
+    { "Parte IV · Programação via API" = [
+      { "16. Python no DobotLab" = "dobot-magician/programacao/python-dobotlab.md" },
+      { "17. pydobot" = "dobot-magician/programacao/pydobot.md" },
+      { "18. Padrões de código seguro" = "dobot-magician/programacao/boas-praticas.md" },
+    ] },
+    { "Parte V · Estudos de caso" = [
+      { "19. Pick-and-place com ventosa" = "dobot-magician/casos/pick-and-place.md" },
+      { "20. Desenho por trajetória" = "dobot-magician/casos/desenho-trajetoria.md" },
+      { "21. Integração com sensor via I/O" = "dobot-magician/casos/sensor-io.md" },
+    ] },
+    { "Glossário e referências" = "dobot-magician/referencias.md" },
+  ] },
 ]
 
 # extra_css = ["stylesheets/extra.css"]
@@ -21,7 +55,7 @@ nav = [
 # variant = "classic"
 # custom_dir = "overrides"
 # favicon = "images/favicon.png"
-language = "en"
+language = "pt-BR"
 features = [
   "announce.dismiss",
   # "content.action.edit",
