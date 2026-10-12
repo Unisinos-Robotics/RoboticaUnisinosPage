@@ -20,12 +20,12 @@ Magician, ele é um volume em forma de "meia rosca": o alcance máximo é de
 <div class="grid" markdown>
 
 <figure markdown="span">
-  ![Workspace visto de lado](../assets/workspace-lateral.png){ width="380" }
+  ![Workspace visto de lado](../assets/workspace-lateral.png)
   <figcaption>Figura 3.1: Workspace em vista lateral. Braço traseiro de 135 mm e antebraço de 147 mm. Fonte: User Guide, fig. 2.2.</figcaption>
 </figure>
 
 <figure markdown="span">
-  ![Workspace visto de cima](../assets/workspace-superior.png){ width="250" }
+  ![Workspace visto de cima](../assets/workspace-superior.png)
   <figcaption>Figura 3.2: Workspace em vista superior, com raio de 320 mm e 180° de rotação da base. Fonte: User Guide, fig. 2.3.</figcaption>
 </figure>
 
@@ -40,19 +40,15 @@ Magician, ele é um volume em forma de "meia rosca": o alcance máximo é de
 
 ## 3.2 Sistemas de coordenadas
 
-<div class="grid" markdown>
-
 <figure markdown="span">
-  ![Coordenadas de junta](../assets/coordenadas-juntas.png){ width="360" }
+  ![Coordenadas de junta](../assets/coordenadas-juntas.png){ width="420" }
   <figcaption>Figura 3.3: Sistema de coordenadas de juntas. Fonte: User Guide, fig. 2.4.</figcaption>
 </figure>
 
 <figure markdown="span">
-  ![Coordenadas cartesianas](../assets/coordenadas-cartesianas.jpg){ width="460" }
+  ![Coordenadas cartesianas](../assets/coordenadas-cartesianas.jpg){ width="640" }
   <figcaption>Figura 3.4: Sistema de coordenadas cartesiano. Fonte: User Guide, fig. 2.5.</figcaption>
 </figure>
-
-</div>
 
 **Coordenadas de junta**: definidas pelos ângulos das juntas, todas rotativas,
 com sentido positivo anti-horário.
@@ -177,12 +173,12 @@ Movimento manual pelos botões do painel de controle do braço, eixo a eixo:
 <div class="grid" markdown>
 
 <figure markdown="span">
-  ![MOVJ e MOVL](../assets/movj-movl.png){ width="300" }
+  ![MOVJ e MOVL](../assets/movj-movl.png)
   <figcaption>Figura 3.5: MOVJ (trajetória livre) e MOVL (linha reta). Fonte: User Guide, fig. 2.6.</figcaption>
 </figure>
 
 <figure markdown="span">
-  ![JUMP](../assets/jump.png){ width="380" }
+  ![JUMP](../assets/jump.png)
   <figcaption>Figura 3.6: JUMP, trajetória em forma de "porta". Fonte: User Guide, fig. 2.7.</figcaption>
 </figure>
 
