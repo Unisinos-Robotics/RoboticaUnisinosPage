@@ -212,12 +212,139 @@ coincidir, e o arco inteiro precisa estar dentro do workspace.
 
 ## 3.6 Exercícios
 
-1. Com `d = 60 mm`, calcule a pose para `J1 = 30°`, `J2 = 45°`, `J3 = 45°`.
-2. Use `ik` para encontrar os ângulos de `(200, 0, 0)`. Depois confira com `fk`.
-3. Por que o JUMP é preferível ao MOVL para mover um objeto entre dois pontos
-   sobre a mesa?
-4. Compare o resultado de `fk` com o `pose()` do `pydobot` no robô real
-   ([cap. 17](../programacao/pydobot.md)) e estime o `d` da sua ferramenta.
+Tente resolver antes de abrir a resposta. As dicas só apontam onde está o
+conteúdo necessário.
+
+### Exercício 1
+
+Com `d = 60 mm`, calcule a pose para `J1 = 30°`, `J2 = 45°`, `J3 = 45°`.
+
+??? tip "Dica"
+
+    Releia a [seção 3.3 Cinemática direta](#33-cinematica-direta).
+
+??? success "Resposta"
+
+    ```text
+    ρ = 135·sen(45°) + 147·cos(45°) + 60 = 95,46 + 103,94 + 60 = 259,40 mm
+    z = 135·cos(45°) − 147·sen(45°) = 95,46 − 103,94 = −8,49 mm
+    x = 259,40·cos(30°) = 224,65 mm
+    y = 259,40·sen(30°) = 129,70 mm
+    r = J1 + J4 = 30°   (J4 = 0)
+    ```
+
+    **Pose ≈ (224,65; 129,70; −8,49; 30°).** Com o código da seção 3.4:
+    `fk(30, 45, 45)` → `(224.65, 129.70, -8.49, 30)`.
+
+### Exercício 2
+
+Use `ik` para encontrar os ângulos de `(200, 0, 0)`. Depois confira com `fk`.
+
+??? tip "Dica"
+
+    Veja a [seção 3.4 Cinemática inversa](#34-cinematica-inversa) e o código
+    `cinematica.py`.
+
+??? success "Resposta"
+
+    ```python
+    >>> ik(200, 0, 0)
+    (0.0, 25.40, 56.05, 0.0)
+    >>> fk(0.0, 25.40, 56.05)
+    (200.0, 0.0, 0.0, 0.0)
+    ```
+
+    **J1 = 0°, J2 ≈ 25,40°, J3 ≈ 56,05°.** O `fk` devolve o ponto original, o que
+    confirma a solução. Os ângulos estão dentro das faixas das juntas
+    (J2: 0° a 85°; J3: −10° a 90°).
+
+### Exercício 3
+
+Por que o JUMP é preferível ao MOVL para mover um objeto entre dois pontos
+sobre a mesa?
+
+??? tip "Dica"
+
+    Compare as trajetórias em [Ponto a ponto (PTP)](#ponto-a-ponto-ptp) e a
+    tabela [Qual modo usar?](#qual-modo-usar).
+
+??? success "Resposta"
+
+    Com MOVL, a ponta vai em **linha reta** de A até B, na mesma altura dos
+    pontos. Se os dois estão sobre a mesa, o objeto é **arrastado** na
+    superfície e pode bater em outros objetos no caminho.
+
+    O JUMP **sobe** até a altura de elevação, **desloca** por cima e **desce**
+    em B. Assim, o objeto passa livre por cima de obstáculos e não toca a mesa
+    durante o trajeto. É por isso que o JUMP é o modo indicado para pegar e
+    soltar objetos.
+
+### Exercício 4
+
+Compare o resultado de `fk` com o `pose()` do `pydobot` no robô real
+([cap. 17](../programacao/pydobot.md)) e estime o `d` da sua ferramenta.
+
+??? tip "Dica"
+
+    Use as equações da [seção 3.3](#33-cinematica-direta) e o exemplo
+    "Verificação com os dados do manual", e veja como ler a pose em
+    [17.5 Primeiro programa](../programacao/pydobot.md#175-primeiro-programa).
+
+??? success "Resposta"
+
+    1. Leia a pose com `x, y, z, r, j1, j2, j3, j4 = robo.pose()`.
+    2. Calcule a distância horizontal real: `ρ = √(x² + y²)`.
+    3. Isole `d` na equação de ρ:
+
+        ```text
+        d = ρ − [135·sen(J2) + 147·cos(J3)]
+        ```
+
+    4. Repita em 3 a 5 poses diferentes e tire a média.
+
+    ```python
+    import math
+
+    def estimar_d(x, y, j2, j3):
+        rho = math.hypot(x, y)
+        return rho - (135 * math.sin(math.radians(j2)) + 147 * math.cos(math.radians(j3)))
+    ```
+
+    Pelos valores do manual, espere algo em torno de **60 mm** para ventosa e
+    caneta e **70 mm** para o laser. Se `z` calculado diferir muito do `z` lido,
+    o robô provavelmente precisa de homing ou calibração
+    ([cap. 13](../operacao/calibracao.md)).
+
+## 3.7 Para estudar mais: vídeos
+
+=== "Português"
+
+    - [Cinemática Inversa de Braço Robótico Planar com 2 Juntas Rotacionais](https://www.youtube.com/watch?v=inSzWXAbM8Q):
+      Reginaldo J. Santos (DMat-ICEx-UFMG). É o mesmo problema da seção 3.4,
+      resolvido com vetores.
+    - [Braço robótico: cinemática direta e inversa](https://www.youtube.com/watch?v=hRrdgqF4izg):
+      aula de Introdução à Robótica (Álvaro Negreiros).
+
+=== "Introdutórios (inglês)"
+
+    - [Inverse Kinematics: Solving for up-arm and down-arm elbow position](https://www.youtube.com/watch?v=Cnr4IfHzX2w):
+      lei dos cossenos e as soluções de cotovelo para cima e para baixo.
+    - [Inverse Kinematics of Planar, Two-Link Robots](https://www.youtube.com/watch?v=jyQyusoxlW8):
+      cinemática direta e inversa de braço planar de dois elos.
+    - [Easy inverse kinematics for robot arms](https://www.youtube.com/watch?v=Q-UeYEpwXXU):
+      abordagem prática e visual.
+    - [Intro to Inverse Kinematics and Example](https://www.youtube.com/watch?v=rJx_XZ8xz6w):
+      Angela Sodemann (RoboGrok).
+
+=== "Aprofundamento (inglês)"
+
+    Curso *Modern Robotics*, de Kevin Lynch (Northwestern University):
+
+    - [Playlist do capítulo 4: Forward Kinematics](https://www.youtube.com/playlist?list=PLggLP4f-rq00efLcgMcG1m4k5CKlgRcGh)
+    - [Exemplo de cinemática direta](https://www.youtube.com/watch?v=cKHsil0V6Qk)
+    - [Playlist do capítulo 6: Inverse Kinematics](https://www.youtube.com/playlist?list=PLggLP4f-rq01fi62ek1BoV1yiPHLL3Vt-)
+    - [Inverse Kinematics of Open Chains](https://www.youtube.com/watch?v=nin2TbMuhR0)
+    - [Todos os vídeos do curso](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx)
 
 ---
 
