@@ -11,7 +11,7 @@ repo_name = "Unisinos-Robotics/RoboticaUnisinosPage"
 
 nav = [
   { "Início" = "index.md" },
-  { "Ebook: Robótica Colaborativa com Dobot Magician" = [
+  { "Robótica Colaborativa com Dobot Magician" = [
     "dobot-magician/index.md",
     { "Parte I · Fundamentos" = [
       { "1. Robótica colaborativa" = "dobot-magician/fundamentos/robotica-colaborativa.md" },
@@ -75,7 +75,7 @@ features = [
   # "navigation.instant.progress",
   "navigation.path",
   # "navigation.prune",
-  "navigation.sections",
+  # "navigation.sections",
   # "navigation.tabs",
   # "navigation.tabs.sticky",
   "navigation.top",
