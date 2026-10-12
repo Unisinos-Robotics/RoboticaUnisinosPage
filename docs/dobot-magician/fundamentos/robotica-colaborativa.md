@@ -66,7 +66,7 @@ flowchart LR
 
 | Modo | Ideia principal | Exemplo |
 |---|---|---|
-| **Parada monitorada de segurança** (*safety-rated monitored stop*) | O robô para, de forma monitorada, sempre que a pessoa entra no espaço colaborativo, e retoma quando ela sai. | Operador posiciona uma peça; o robô aguarda parado. |
+| **Parada monitorada de segurança** [(*safety-rated monitored stop*)](https://www.researchgate.net/publication/360718236_Safety-rated_Monitored_Stop_Collaborative_Operation_Function_for_Industrial_Robots_a_Simple_Model_for_Functional_Analysis_Purposes) | O robô para, de forma monitorada, sempre que a pessoa entra no espaço colaborativo, e retoma quando ela sai. | Operador posiciona uma peça; o robô aguarda parado. |
 | **Guiamento manual** (*hand guiding*) | A pessoa conduz o robô com as mãos, por um dispositivo de guiamento, para ensinar ou executar o movimento. | Ensinar pontos arrastando o braço. |
 | **Monitoramento de velocidade e separação** (*speed and separation monitoring*, SSM) | Sensores medem a distância até a pessoa; o robô reduz a velocidade ou para antes que a distância mínima seja violada. | Scanner de área reduz a velocidade quando alguém se aproxima. |
 | **Limitação de potência e força** (*power and force limiting*, PFL) | O contato pode acontecer, mas a força e a pressão sobre o corpo ficam abaixo de limites definidos por avaliação biomecânica. | Cobot que para ao encostar no braço do operador. |
@@ -74,23 +74,14 @@ flowchart LR
 !!! note "Valores normativos"
 
     Os limites de força, pressão e velocidade são definidos nas normas e dependem
-    da região do corpo, do tipo de contato e da avaliação de risco. Consulte o
-    texto oficial das normas antes de projetar uma aplicação real; este ebook não
-    reproduz essas tabelas.
+    da região do corpo, do tipo de contato e da avaliação de risco. É preciso consultar o
+    texto oficial das normas antes de projetar uma aplicação real.
 
 ## 1.5 Onde o Magician se encaixa
 
 O Magician não é um cobot industrial certificado, mas reproduz em pequena
 escala várias situações da robótica colaborativa. Isso o torna uma boa
-plataforma de estudo:
-
-| Conceito colaborativo | Como aparece no Magician |
-|---|---|
-| Guiamento manual | Botão **Unlock** no antebraço: você segura o botão, move o braço com a mão e solta para gravar o ponto ([cap. 11](../operacao/teaching-playback.md)). |
-| Parada e retomada | Comando *wait*, pausa no DobotLab e tecla **Key** no modo offline. |
-| Monitoramento | **Detecção de perda de passo** (*lost step*): o robô para e acende o LED vermelho quando detecta perda de passo do motor. |
-| Integração com sensores | Entradas digitais e analógicas multiplexadas, sensores infravermelho e de cor ([cap. 15](../operacao/io.md)). |
-| Baixa energia | Carga máxima de 500 g, motores de passo pequenos e alcance de 320 mm. |
+plataforma de estudo.
 
 !!! warning "Isso não substitui a segurança real"
 
@@ -98,16 +89,6 @@ plataforma de estudo:
     detecção de perda de passo, por exemplo, protege a **precisão** do robô, não
     o operador. Mantenha as mãos fora da área de trabalho durante a execução,
     como manda o manual.
-
-## 1.6 Exercícios
-
-1. Classifique em níveis de interação: (a) uma impressora 3D cartesiana; (b) o
-   Magician fazendo pick-and-place enquanto você observa; (c) você ensinando
-   pontos com o botão Unlock.
-2. Para cada modo colaborativo da tabela 1.4, descreva que sensor ou função o
-   Magician precisaria ter para implementá-lo de verdade.
-3. Por que as normas avaliam a **aplicação** e não o **robô**? Dê um exemplo com
-   o Magician em que a ferramenta muda o risco da aplicação.
 
 [^colgate]: J. E. Colgate, W. Wannasuphoprasit e M. A. Peshkin, "Cobots: Robots
     for collaboration with human operators", *Proceedings of the ASME Dynamic
